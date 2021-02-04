@@ -18,7 +18,7 @@ Follow these steps to set up and work on your project:
 
 ### Task 2: Minimum Viable Product
 
-- Using `knex migrations`, design and write a schema for the `cars` table using the specifications below.
+- [x] Using `knex migrations`, design and write a schema for the `cars` table using the specifications below.
 - Configure `knex` to connect to a `/data/car-dealer.db3` database using the `sqlite3` npm module.
 - Write endpoints to support `CREATE` and `READ` operations on the `cars` resource.
 - Use a rest client like _Insomnia_ or _Postman_ to test your API.
@@ -27,8 +27,8 @@ Follow these steps to set up and work on your project:
 
 The client for this API is a car dealer who has provided the following specs:
 
-- The critical information for each car is the VIN, make, model, and mileage.
-- They also track transmission type and status of the title (clean, salvage, etc.), but this information is not always immediately known.
+- [x] The critical information for each car is the VIN, make, model, and mileage.
+- [x] They also track transmission type and status of the title (clean, salvage, etc.), but this information is not always immediately known.
 
 ### Task 3: Stretch Problems
 
