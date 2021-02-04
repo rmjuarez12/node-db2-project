@@ -37,8 +37,43 @@ router.post("/", getMiddleware.validateCarBody, (req, res) => {
 
   carsModel
     .create(carData)
-    .then((response) => {
-      res.status(201).json(response);
+    .then((car) => {
+      res.status(201).json(car);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
+
+//-- PUT
+// Update a car entry
+router.put(
+  "/:id",
+  [getMiddleware.validateCarID(carsModel), getMiddleware.validateCarBody],
+  (req, res) => {
+    const { id } = req.params;
+    const newCarData = req.body;
+
+    carsModel
+      .update(id, newCarData)
+      .then((car) => {
+        res.status(200).json(car);
+      })
+      .catch((err) => {
+        res.status(500).json(err);
+      });
+  }
+);
+
+//-- DELETE
+// Delete a record
+router.delete("/:id", getMiddleware.validateCarID(carsModel), (req, res) => {
+  const { id } = req.params;
+
+  carsModel
+    .remove(id)
+    .then(() => {
+      res.status(200).json({ message: "Car entry has been delete!" });
     })
     .catch((err) => {
       res.status(500).json(err);

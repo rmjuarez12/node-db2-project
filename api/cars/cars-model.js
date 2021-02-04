@@ -20,9 +20,26 @@ function create(car) {
     });
 }
 
+//* Function to update car entry
+function update(id, changes) {
+  return db("cars")
+    .where({ id })
+    .update(changes)
+    .then(() => {
+      return getByID(id);
+    });
+}
+
+//* Function to delete a record
+function remove(id) {
+  return db("cars").where({ id }).del();
+}
+
 //* Export Modules
 module.exports = {
   getAllCars,
   getByID,
   create,
+  update,
+  remove,
 };
